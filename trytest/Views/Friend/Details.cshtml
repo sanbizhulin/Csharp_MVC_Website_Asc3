@@ -1,0 +1,45 @@
+﻿@model trytest.Models.Friend
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Friend</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FriendName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FriendName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FriendNickname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FriendNickname)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FriendPassword)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FriendPassword)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FriendEmail)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FriendEmail)
+    </div>
+
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.FriendID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

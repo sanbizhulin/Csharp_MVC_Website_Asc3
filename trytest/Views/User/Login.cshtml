@@ -1,0 +1,42 @@
+﻿@model trytest.Models.User
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login in User</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>User Logon</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserPassword)
+        </div>
+        <div class="editor-field">
+
+            @Html.PasswordFor(model => model.UserPassword)
+
+            @Html.ValidationMessageFor(model => model.UserPassword)
+        </div>
+
+        <p>
+            <input type="submit" value="Login" />
+            <input type="button" value="Register" onclick="window.location.href='/User/Create'" />
+        </p>
+    </fieldset>
+     
+    
+}

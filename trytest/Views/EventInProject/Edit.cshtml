@@ -1,0 +1,94 @@
+﻿@model trytest.Models.EventInProject
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>EventInProject</legend>
+
+        @Html.HiddenFor(model => model.EventInProjectID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EventName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EventName)
+            @Html.ValidationMessageFor(model => model.EventName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Time)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Time)
+            @Html.ValidationMessageFor(model => model.Time)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FriendID, "friend")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("FriendID", String.Empty)
+            @Html.ValidationMessageFor(model => model.FriendID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EventInProjectTypeID, "eventinprojecttype")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("EventInProjectTypeID", String.Empty)
+            @Html.ValidationMessageFor(model => model.EventInProjectTypeID)
+        </div>
+@if( int.Parse(Session["UserRole"].ToString())==1)
+{       <div class="editor-label">
+            @Html.LabelFor(model => model.EventInProjectStatusID, "eventinprojectstatus")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("EventInProjectStatusID", String.Empty)
+            @Html.ValidationMessageFor(model => model.EventInProjectStatusID)
+        </div>
+}
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

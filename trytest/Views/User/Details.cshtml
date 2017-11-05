@@ -1,0 +1,57 @@
+﻿@model trytest.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserNickname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserNickname)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserPassword)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserPassword)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserEmail)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserEmail)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserSex)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserSex)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.UserID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<trytest.Models.Friend>
+
+@{
+    ViewBag.Title = "Index in Friend";
+}
+
+<h2>Index in Friend</h2>
+<h1>Here are your friends list</h1>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FriendName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FriendNickname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FriendPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FriendEmail)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FriendName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FriendNickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FriendPassword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FriendEmail)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FriendID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FriendID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FriendID })
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Add New Friend", "Index","User")
+</p>

@@ -1,0 +1,24 @@
+﻿@model trytest.Models.User
+
+@{
+    ViewBag.Title = "FindFriend";
+}
+
+<h2>please input the friend name which you want to find</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+ @Html.ValidationSummary(true)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+        <p>
+            <input type="submit" value="search" />
+        </p>
+       
+}

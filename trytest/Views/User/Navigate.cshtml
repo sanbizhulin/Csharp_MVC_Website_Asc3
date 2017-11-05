@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "NavigatePage";
+}
+
+<h2>NavigatePage</h2>
+<div>
+   <h1> @Html.ActionLink("Account Management", "Edit", "User", new { id = int.Parse(Session["SessionID"].ToString()) }, null)</h1>
+   <h1> @Html.ActionLink("Event Management", "Index", "EventInProject")</h1>
+    <h1> @Html.ActionLink("Friend Management", "Index", "Friend")</h1>
+ @if( int.Parse(Session["UserRole"].ToString())==1)
+  {  
+    <h1> @Html.ActionLink("User Management", "Index", "User")</h1>
+
+  }
+</div>

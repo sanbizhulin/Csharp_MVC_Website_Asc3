@@ -1,0 +1,80 @@
+﻿@model IEnumerable<trytest.Models.EventInProject>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index in EventInProject</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.friend.FriendName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eventinprojecttype.EventInProjectTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eventinprojectstatus.EventInProjectStatusName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.friend.FriendName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eventinprojecttype.EventInProjectTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eventinprojectstatus.EventInProjectStatusName)
+        </td>
+        <td>
+           @if(int.Parse(Session["UserRole"].ToString()) == 1)
+          { @Html.ActionLink("Edit", "Edit", new { id=item.EventInProjectID }) } |
+             @Html.ActionLink("Details", "Details", new { id=item.EventInProjectID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EventInProjectID })
+           
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("go to find contribution", "Index", "Contribution")
+</div>
